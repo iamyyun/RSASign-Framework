@@ -28,6 +28,16 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6B94B7E1283B42A70083ABED"
+               BuildableName = "RSASign_Sample_SwiftTests.xctest"
+               BlueprintName = "RSASign_Sample_SwiftTests"
+               ReferencedContainer = "container:RSASign_Sample_Swift.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

@@ -21,6 +21,8 @@ class RSASignViewController: UIViewController, UITextViewDelegate {
     
     private var bgTap: UITapGestureRecognizer?
     
+    public typealias RSASignVCCallback = (Bool, Dictionary<String, Any>) -> Void
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -82,24 +84,18 @@ class RSASignViewController: UIViewController, UITextViewDelegate {
         return true
     }
     
-    func textViewDidEndEditing(_ textView: UITextView) {
-    }
-    
-    func textViewDidChange(_ textView: UITextView) {
-    }
-    
     // MARK: Actions
     @IBAction func actionBtnVersion(_ sender: Any) {
         let title: String! = "Get library version"
         var msg: String! = ""
         
         // Sync
-        let resDic: Dictionary! = rsaSign.getVersion()
+        let resDic: Dictionary! = getVersionSync()
         msg = self.jsonStringPrint(dic: resDic)
         self.showResult(title: title, message: msg)
         
         // Async
-//        rsaSign.getVersion({ (success: Bool, result: Dictionary) in
+//        getVersionAsync(callback: {(success: Bool, result: Dictionary) in
 //            msg = self.jsonStringPrint(dic: result)
 //            self.showResult(title: title, message: msg)
 //        })
@@ -112,7 +108,7 @@ class RSASignViewController: UIViewController, UITextViewDelegate {
         self.textSignature.text = ""
         
         // Sync
-        var resDic: Dictionary! = rsaSign.generateKey()
+        var resDic: Dictionary! = generateKeySync()
         if (resDic["resultCode"] as! String? == RESULT_CODE_SUCCESS) {
             let pubKey: Data! = resDic["publicKey"] as? Data
             resDic["publicKey"] = pubKey.hexEncodedString()
@@ -121,7 +117,7 @@ class RSASignViewController: UIViewController, UITextViewDelegate {
         self.showResult(title: title, message: msg)
         
         // Async
-//        rsaSign.generateKey({ (success: Bool, result: Dictionary) in
+//        generateKeyAsync(callback: { (success: Bool, result: Dictionary) in
 //            if success == true {
 //                var resDic: Dictionary = result;
 //                let pubKey: Data! = resDic["publicKey"] as? Data
@@ -137,7 +133,7 @@ class RSASignViewController: UIViewController, UITextViewDelegate {
         var msg: String! = ""
 
         // Sync
-        var resDic: Dictionary! = rsaSign.getPublicKey()
+        var resDic: Dictionary! = getPublicKeySync()
         if (resDic["resultCode"] as! String? == RESULT_CODE_SUCCESS) {
             let pubKey: Data! = resDic["publicKey"] as? Data
             resDic["publicKey"] = pubKey.hexEncodedString()
@@ -146,7 +142,7 @@ class RSASignViewController: UIViewController, UITextViewDelegate {
         self.showResult(title: title, message: msg)
         
         // Async
-//        rsaSign.getPublicKey({ (success: Bool, result: Dictionary) in
+//        getPublicKeyAsync(callback: { (success: Bool, result: Dictionary) in
 //            if success == true {
 //                var resDic: Dictionary = result;
 //                let pubKey: Data! = resDic["publicKey"] as? Data
@@ -164,7 +160,7 @@ class RSASignViewController: UIViewController, UITextViewDelegate {
         let signData: Data! = "original data".data(using: .utf8)
 
         // Sync
-        var resDic: Dictionary! = rsaSign.createSignature(signData: signData)
+        var resDic: Dictionary! = createSignatureSync(signData: signData)
         if resDic["resultCode"] as! String? == RESULT_CODE_SUCCESS {
             let signature: Data! = resDic["signature"] as? Data
             resDic["signature"] = signature.hexEncodedString()
@@ -175,7 +171,7 @@ class RSASignViewController: UIViewController, UITextViewDelegate {
         self.showResult(title: title, message: msg)
             
         // Async
-//        rsaSign.createSignature(signData, callback:{ (success: Bool, result: Dictionary) in
+//        createSignatureAsync(signData: signData, callback: { (success: Bool, result: Dictionary) in
 //            if success == true {
 //                let signature: Data! = resDic["signature"] as? Data
 //                resDic["signature"] = signature.hexEncodedString()
@@ -196,12 +192,12 @@ class RSASignViewController: UIViewController, UITextViewDelegate {
         let signatureData: NSData! = NSData(bytes: signature, length: signature.count)
         
         // Sync
-        let resDic: Dictionary! = rsaSign.verifySignature(signData: signData, signature: signatureData as Data)
+        let resDic: Dictionary! = verifySignatureSync(signData: signData, signature: signatureData as Data)
         msg = self.jsonStringPrint(dic: resDic);
         self.showResult(title: title, message: msg)
         
         // Async
-//        rsaSign.verifySignature(signData, signature: (signatureData as Data?), callback:{ (success: Bool, result: Dictionary) in
+//        verifySignatureAsync(signData: signData, signature: signatureData as Data, callback:{ (success: Bool, result: Dictionary) in
 //            msg = self.jsonStringPrint(dic: resDic);
 //            self.showResult(title: title, message: msg)
 //        })
@@ -214,17 +210,78 @@ class RSASignViewController: UIViewController, UITextViewDelegate {
         self.textSignature.text = ""
         
         // Sync
-        let resDic: Dictionary! = rsaSign.deleteKey()
+        let resDic: Dictionary! = deleteKeySync()
         msg = self.jsonStringPrint(dic: resDic);
         self.showResult(title: title, message: msg)
         
         // Async
-//        rsaSign.deleteKey({ (success: Bool, result: Dictionary) in
+//        deleteKeyAsync(callback: { (success: Bool, result: Dictionary) in
 //            msg = self.jsonStringPrint(dic: result);
 //            self.showResult(title: title, message: msg)
 //        })
     }
     
+    
+    // MARK: RSASign Functions
+    func getVersionSync() -> Dictionary<String, Any> {
+        return rsaSign.getVersion()
+    }
+    
+    func getVersionAsync(callback: RSASignVCCallback) -> Void {
+        rsaSign.getVersion(callback: {(success: Bool, result: Dictionary) in
+            callback(success, result)
+        })
+    }
+    
+    func generateKeySync() -> Dictionary<String, Any> {
+        return rsaSign.generateKey()
+    }
+    
+    func generateKeyAsync(callback: RSASignVCCallback) -> Void {
+        rsaSign.generateKey(callback: {(success:Bool, result: Dictionary) in
+            callback(success, result)
+        })
+    }
+    
+    func getPublicKeySync() -> Dictionary<String, Any> {
+        return rsaSign.getPublicKey()
+    }
+    
+    func getPublicKeyAsync(callback: RSASignVCCallback) -> Void {
+        rsaSign.getPublicKey(callback: {(success: Bool, result: Dictionary) in
+            callback(success, result)
+        })
+    }
+    
+    func createSignatureSync(signData: Data) -> Dictionary<String, Any> {
+        return rsaSign.createSignature(signData: signData)
+    }
+    
+    func createSignatureAsync(signData: Data, callback: RSASignVCCallback) -> Void {
+        rsaSign.createSignature(signData: signData, callback: {(success: Bool, result: Dictionary) in
+            callback(success, result)
+        })
+    }
+    
+    func verifySignatureSync(signData: Data, signature: Data) -> Dictionary<String, Any> {
+        return rsaSign.verifySignature(signData: signData, signature: signature)
+    }
+    
+    func verifySignatureAsync(signData: Data, signature: Data, callback: RSASignVCCallback) -> Void {
+        rsaSign.verifySignature(signData: signData, signature: signature, callback: {(success: Bool, result: Dictionary) in
+            callback(success, result)
+        })
+    }
+    
+    func deleteKeySync() -> Dictionary<String, Any> {
+        return rsaSign.deleteKey()
+    }
+    
+    func deleteKeyAsync(callback: RSASignVCCallback) -> Void {
+        rsaSign.deleteKey(callback: {(success: Bool, result: Dictionary) in
+            callback(success, result)
+        })
+    }
     
     // MARK: Keyboard Notification
     @objc func keyboardWillShow(notification: NSNotification) {

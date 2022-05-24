@@ -38,6 +38,16 @@
                ReferencedContainer = "container:RSASign_Sample_Swift.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6B31435B283CB08D00D59472"
+               BuildableName = "RSASign_Sample_SwiftUITests.xctest"
+               BlueprintName = "RSASign_Sample_SwiftUITests"
+               ReferencedContainer = "container:RSASign_Sample_Swift.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

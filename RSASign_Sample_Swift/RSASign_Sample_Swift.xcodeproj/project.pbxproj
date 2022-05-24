@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		6B11E0962705C999009B5085 /* RSASign.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B11E0952705C999009B5085 /* RSASign.framework */; };
 		6B11E0972705C999009B5085 /* RSASign.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6B11E0952705C999009B5085 /* RSASign.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6B31435F283CB08D00D59472 /* RSASign_Sample_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B31435E283CB08D00D59472 /* RSASign_Sample_SwiftUITests.swift */; };
+		6B314361283CB08D00D59472 /* RSASign_Sample_SwiftUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B314360283CB08D00D59472 /* RSASign_Sample_SwiftUITestsLaunchTests.swift */; };
+		6B314368283CB0CC00D59472 /* RSASignViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B314367283CB0CC00D59472 /* RSASignViewControllerUITests.swift */; };
 		6B8A8AC9231DFA2F00F86E51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8A8AC8231DFA2F00F86E51 /* AppDelegate.swift */; };
 		6B8A8ACE231DFA2F00F86E51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6B8A8ACC231DFA2F00F86E51 /* Main.storyboard */; };
 		6B8A8AD0231DFA3000F86E51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6B8A8ACF231DFA3000F86E51 /* Assets.xcassets */; };
@@ -21,6 +24,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		6B314362283CB08D00D59472 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6B8A8ABD231DFA2F00F86E51 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6B8A8AC4231DFA2F00F86E51;
+			remoteInfo = RSASign_Sample_Swift;
+		};
 		6B94B7E6283B42A70083ABED /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 6B8A8ABD231DFA2F00F86E51 /* Project object */;
@@ -46,6 +56,10 @@
 
 /* Begin PBXFileReference section */
 		6B11E0952705C999009B5085 /* RSASign.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RSASign.framework; path = ../RSASignLib/RSASign.framework; sourceTree = "<group>"; };
+		6B31435C283CB08D00D59472 /* RSASign_Sample_SwiftUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RSASign_Sample_SwiftUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B31435E283CB08D00D59472 /* RSASign_Sample_SwiftUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSASign_Sample_SwiftUITests.swift; sourceTree = "<group>"; };
+		6B314360283CB08D00D59472 /* RSASign_Sample_SwiftUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSASign_Sample_SwiftUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		6B314367283CB0CC00D59472 /* RSASignViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSASignViewControllerUITests.swift; sourceTree = "<group>"; };
 		6B8A8AC5231DFA2F00F86E51 /* RSASign_Sample_Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RSASign_Sample_Swift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B8A8AC8231DFA2F00F86E51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6B8A8ACD231DFA2F00F86E51 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -61,6 +75,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		6B314359283CB08D00D59472 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6B8A8AC2231DFA2F00F86E51 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -79,11 +100,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B31435D283CB08D00D59472 /* RSASign_Sample_SwiftUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6B31435E283CB08D00D59472 /* RSASign_Sample_SwiftUITests.swift */,
+				6B314360283CB08D00D59472 /* RSASign_Sample_SwiftUITestsLaunchTests.swift */,
+				6B314367283CB0CC00D59472 /* RSASignViewControllerUITests.swift */,
+			);
+			path = RSASign_Sample_SwiftUITests;
+			sourceTree = "<group>";
+		};
 		6B8A8ABC231DFA2F00F86E51 = {
 			isa = PBXGroup;
 			children = (
 				6B8A8AC7231DFA2F00F86E51 /* RSASign_Sample_Swift */,
 				6B94B7E3283B42A70083ABED /* RSASign_Sample_SwiftTests */,
+				6B31435D283CB08D00D59472 /* RSASign_Sample_SwiftUITests */,
 				6B8A8AC6231DFA2F00F86E51 /* Products */,
 				6B8A8AE4231E033100F86E51 /* Frameworks */,
 			);
@@ -94,6 +126,7 @@
 			children = (
 				6B8A8AC5231DFA2F00F86E51 /* RSASign_Sample_Swift.app */,
 				6B94B7E2283B42A70083ABED /* RSASign_Sample_SwiftTests.xctest */,
+				6B31435C283CB08D00D59472 /* RSASign_Sample_SwiftUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -133,6 +166,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		6B31435B283CB08D00D59472 /* RSASign_Sample_SwiftUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6B314366283CB08D00D59472 /* Build configuration list for PBXNativeTarget "RSASign_Sample_SwiftUITests" */;
+			buildPhases = (
+				6B314358283CB08D00D59472 /* Sources */,
+				6B314359283CB08D00D59472 /* Frameworks */,
+				6B31435A283CB08D00D59472 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6B314363283CB08D00D59472 /* PBXTargetDependency */,
+			);
+			name = RSASign_Sample_SwiftUITests;
+			productName = RSASign_Sample_SwiftUITests;
+			productReference = 6B31435C283CB08D00D59472 /* RSASign_Sample_SwiftUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		6B8A8AC4231DFA2F00F86E51 /* RSASign_Sample_Swift */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6B8A8AD7231DFA3000F86E51 /* Build configuration list for PBXNativeTarget "RSASign_Sample_Swift" */;
@@ -179,6 +230,10 @@
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = ATON;
 				TargetAttributes = {
+					6B31435B283CB08D00D59472 = {
+						CreatedOnToolsVersion = 13.4;
+						TestTargetID = 6B8A8AC4231DFA2F00F86E51;
+					};
 					6B8A8AC4231DFA2F00F86E51 = {
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1010;
@@ -204,11 +259,19 @@
 			targets = (
 				6B8A8AC4231DFA2F00F86E51 /* RSASign_Sample_Swift */,
 				6B94B7E1283B42A70083ABED /* RSASign_Sample_SwiftTests */,
+				6B31435B283CB08D00D59472 /* RSASign_Sample_SwiftUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		6B31435A283CB08D00D59472 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6B8A8AC3231DFA2F00F86E51 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -230,6 +293,16 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		6B314358283CB08D00D59472 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B314368283CB0CC00D59472 /* RSASignViewControllerUITests.swift in Sources */,
+				6B314361283CB08D00D59472 /* RSASign_Sample_SwiftUITestsLaunchTests.swift in Sources */,
+				6B31435F283CB08D00D59472 /* RSASign_Sample_SwiftUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6B8A8AC1231DFA2F00F86E51 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -252,6 +325,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		6B314363283CB08D00D59472 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6B8A8AC4231DFA2F00F86E51 /* RSASign_Sample_Swift */;
+			targetProxy = 6B314362283CB08D00D59472 /* PBXContainerItemProxy */;
+		};
 		6B94B7E7283B42A70083ABED /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6B8A8AC4231DFA2F00F86E51 /* RSASign_Sample_Swift */;
@@ -279,6 +357,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		6B314364283CB08D00D59472 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7RHSLR9YCS;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.iamyyun.RSASign-Sample-SwiftUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RSASign_Sample_Swift;
+			};
+			name = Debug;
+		};
+		6B314365283CB08D00D59472 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7RHSLR9YCS;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.iamyyun.RSASign-Sample-SwiftUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = RSASign_Sample_Swift;
+			};
+			name = Release;
+		};
 		6B8A8AD5231DFA3000F86E51 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -501,6 +619,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		6B314366283CB08D00D59472 /* Build configuration list for PBXNativeTarget "RSASign_Sample_SwiftUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6B314364283CB08D00D59472 /* Debug */,
+				6B314365283CB08D00D59472 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		6B8A8AC0231DFA2F00F86E51 /* Build configuration list for PBXProject "RSASign_Sample_Swift" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
